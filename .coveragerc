@@ -1,0 +1,5 @@
+[run]
+include = real_estate_information/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
