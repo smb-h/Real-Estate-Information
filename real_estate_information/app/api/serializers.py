@@ -1,14 +1,12 @@
 from rest_framework import serializers
 
-from real_estate_information.users.models import User
+from app.models import Property
 
 
-class UserSerializer(serializers.ModelSerializer):
+class PropertySerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ["username", "email", "name", "url"]
+        model = Property
+        fields = ["area", "sector", "url", "created"]
 
-        extra_kwargs = {
-            "url": {"view_name": "api:user-detail", "lookup_field": "username"}
-        }
+
 

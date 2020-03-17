@@ -78,7 +78,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "real_estate_information.users.apps.UsersConfig",
-    "app", Your stuff: custom apps go here
+    "app",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
