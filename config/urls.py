@@ -16,12 +16,12 @@ urlpatterns = [
     # User management
     path("users/", include("real_estate_information.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    # Your stuff: custom urls includes go here
+    path("App/", include("real_estate_information.app.urls", namespace="App")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # API URLS
 urlpatterns += [
     # API base url
-    path("api/", include("config.api_router")),
+    path("API/", include("config.api_router", namespace="API")),
     # DRF auth token
     path("auth-token/", obtain_auth_token),
 ]
