@@ -12,13 +12,20 @@ from app.utils.scrap_kilid import scrap_kilid
 from app.utils.scrap_melkana import scrap_melkana
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
-
+# Permissions
+from rest_framework.permissions import (
+											AllowAny,
+                                            IsAuthenticated,
+                                            IsAdminUser,
+                                            IsAuthenticatedOrReadOnly,
+                                        )
 User = get_user_model()
 
 
 class PropertyListAPIView(generics.ListAPIView):
     serializer_class = PropertySerializer
     queryset = Property.objects.all()
+    permission_classes = [AllowAny]
     lookup_field = "id"
     filter_backends = (SearchFilter, DjangoFilterBackend, OrderingFilter,)
     search_fields = ('area', 'sector', 'url')
@@ -27,6 +34,7 @@ class PropertyListAPIView(generics.ListAPIView):
 class PropertyUpdateAPI(APIView):
     serializer_class = PropertySerializer
     queryset = Property.objects.all()
+    permission_classes = [AllowAny]
     lookup_field = "id"
 
     # GET
